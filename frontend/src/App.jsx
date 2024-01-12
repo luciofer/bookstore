@@ -1,11 +1,15 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
+import { SnackbarProvider } from 'notistack'
+
 
 export function App() {
 
   return (
     <BrowserRouter>
-      <Router />
+      <SnackbarProvider>
+        <Router />
+      </SnackbarProvider>
     </BrowserRouter>
   )
 }
