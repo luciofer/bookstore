@@ -29,7 +29,7 @@ export function EditBooks() {
                 alert('An error occured. Please check the console!')
                 console.log(error)
             })
-    }, [])
+    }, [id])
 
 
     function handleEditBook(){

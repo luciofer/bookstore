@@ -85,3 +85,20 @@ bookRouter.put('/:id', async (request, response) => {
         return response.status(500).send({message: error.message})
     }
 })
+
+bookRouter.delete('/:id', async(request, response) => {
+    try {
+        const { id } = request.params
+        const result = await Book.findByIdAndDelete(id)
+
+        if(!result){
+            return response.status(404).send({message: 'Book not found'})
+        }
+
+        return response.status(200).send({message: 'Book deleted successfully'})
+        
+    } catch (error) {
+        console.log(error)
+        return response.status(500).send({message: error.message})
+    }
+})
